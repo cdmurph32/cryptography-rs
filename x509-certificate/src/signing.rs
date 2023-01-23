@@ -11,7 +11,7 @@ use {
     bytes::Bytes,
     ring::{
         rand::SystemRandom,
-        signature::{self, KeyPair},
+        signature::{self, EcdsaKeyPair, KeyPair},
     },
 };
 
@@ -178,7 +178,11 @@ impl InMemorySigningKeyPair {
                 Ok(Self::Rsa(pair, key.private_key.into_bytes().to_vec()))
             }
             KeyAlgorithm::Ecdsa(curve) => {
-                let pair = signature::EcdsaKeyPair::from_pkcs8(curve.into(), data.as_ref())?;
+                let pair = EcdsaKeyPair::from_pkcs8(
+                    curve.into(),
+                    data.as_ref(),
+                    &ring::rand::SystemRandom::new(),
+                )?;
 
                 Ok(Self::Ecdsa(pair, curve, data.as_ref().to_vec()))
             }
