@@ -19,5 +19,5 @@ bytes = "1.0"
 chrono = { version = "=0.4.19", default-features = false, features = ["std", "clock"] }
 hex = "0.4"
 pem = "1.0"
-ring = { path="/home/colmurph/workspaces/github/briansmith/ring" }
+ring = { git = "https://github.com/JanKaul/ring.git", branch = "wasm32-wasi" }
 thiserror = "1.0"
