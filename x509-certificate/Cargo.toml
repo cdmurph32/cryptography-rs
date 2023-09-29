@@ -21,7 +21,7 @@ chrono = { version = "0.4.26", default-features = false, features = ["clock"] }
 der = "0.7.7"
 hex = "0.4.3"
 pem = "2.0.1"
-ring = { package = "ring-wasi", git = "https://github.com/jedisct1/ring-wasi", branch = "0.16.20" }
+ring = { git = "https://github.com/wasix-org/ring", branch = "wasix" }
 signature = { version = "2.1.0", features = ["std"] }
 spki = { version = "0.7.2", features = ["alloc"] }
 thiserror = "1.0.44"
